@@ -1,0 +1,27 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Download
+      run: |
+        cd
+        mkdir v2ray
+        cd v2ray
+        wget https://github.com/CypherpunkArmory/punch/releases/download/0.2.2/punch-linux-amd64.zip -O punch.zip
+        wget https://github.com/v2ray/v2ray-core/releases/download/v4.21.3/v2ray-linux-64.zip -O v2ray.zip
+        unzip punch.zip
+        unzip v2ray.zip
+        rm -rf punch.zip v2ray.zip config.json
+        ./punch setup -u funnymdzz@gmail.com -p fk20051357
+        wget https://raw.githubusercontent.com/funnymdzz/v2actions/master/config.json
+    - name: starting
+      run: |
+        ./v2ray &
+        ./punch tcp 8080
