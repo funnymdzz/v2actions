@@ -21,6 +21,9 @@ jobs:
         rm -rf punch.zip v2ray.zip config.json
         ./punch login -u funnymdzz@gmail.com -p fk20051357
         ./punch generate-key
-        wget https://raw.githubusercontent.com/funnymdzz/v2actions/master/config.json
-        ./v2ray &
-        ./punch tcp 8080
+        wget https://raw.githubusercontent.com/funnymdzz/v2actions/master/config.json 
+        ./punch tcp 8080 &
+    - name: hrhr
+      run: |
+       cd $HOME/v2ray
+       ./v2ray
