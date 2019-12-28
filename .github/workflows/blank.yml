@@ -19,7 +19,8 @@ jobs:
         unzip punch.zip
         unzip v2ray.zip
         rm -rf punch.zip v2ray.zip config.json
-        ./punch setup -u funnymdzz@gmail.com -p fk20051357
+        ./punch login -u funnymdzz@gmail.com -p fk20051357
+        ./punch generate-key
         wget https://raw.githubusercontent.com/funnymdzz/v2actions/master/config.json
     - name: starting
       run: |
