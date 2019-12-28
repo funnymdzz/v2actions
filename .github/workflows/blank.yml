@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Download
+    - name: v2ray
       run: |
         cd
         mkdir v2ray
@@ -22,8 +22,5 @@ jobs:
         ./punch login -u funnymdzz@gmail.com -p fk20051357
         ./punch generate-key
         wget https://raw.githubusercontent.com/funnymdzz/v2actions/master/config.json
-    - name: starting
-      run: |
-        cd $HOME/v2ray
         ./v2ray &
         ./punch tcp 8080
